@@ -10,8 +10,7 @@ line.moveTo(start);
 // Note the plus operator on Point objects.
 line.lineTo(start + [100, -50]);
 
-// Create a circle shaped path with its center at the center
-// of the view and a radius of 30:
+// if view is resized and then redrawn, pathCircle will recenter itself
 var pathCircle = new Path.Circle({
     center: view.center,
     radius: 30,
