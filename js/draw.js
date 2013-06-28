@@ -33,3 +33,11 @@ roundRect.style = {
     strokeColor: 'brown',
     strokeWidth: 6
 };
+
+// text
+var text = new PointText({
+    point: [rectOrigin.x + 20, (rectOrigin.y + rectHeight/2)],
+    content: 'Hello text',
+    fillColor: 'brown',
+    fontSize: 25
+});
