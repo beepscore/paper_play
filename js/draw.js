@@ -4,11 +4,12 @@ line.style = {
     strokeColor: 'black',
     strokeWidth: 4
 }
-var start = new Point(100, 100);
+
+var start = new Point(300, 100);
 // Move to start and draw a line from there
 line.moveTo(start);
 // Note the plus operator on Point objects.
-line.lineTo(start + [100, -50]);
+line.lineTo(start + [200, -50]);
 
 // if view is resized and then redrawn, pathCircle will recenter itself
 var pathCircle = new Path.Circle({
