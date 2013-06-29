@@ -27,23 +27,24 @@ function Player(name, origin, rectColor, textColor)
     this.name = name;
 
     // rounded rectangle
-    var rectSize = new Size(200, 50);
-    var rect = new Rectangle(origin, rectSize);
+    var rectSize = new Size(200, 30);
+    var rectOrigin = origin + [100, 0];
+    var rect = new Rectangle(rectOrigin, rectSize);
 
-    var cornerSize = new Size(20, 20);
+    var cornerSize = new Size(10, 10);
     this.roundRect = new Path.RoundRectangle(rect, cornerSize);
     this.roundRect.style = {
         fillColor: rectColor,
         strokeColor: 'brown',
-        strokeWidth: 6
+        strokeWidth: 4
     };
 
         //point: [this.position.x + 20, this.position.y + rectSize.height/2],
     this.text = new PointText({
-        point: [origin.x + 20, origin.y + rectSize.height/2],
+        point: [origin.x, origin.y + 0.75*rectSize.height],
         content: this.name,
         fillColor: textColor,
-        fontSize: 25
+        fontSize: 20
     });
 
     //return new Group([this.roundRect, this.text]);
@@ -51,18 +52,15 @@ function Player(name, origin, rectColor, textColor)
 
 // must use new Point, not [50, 140]
 playerOrigin = new Point(50, 80);
-//var playerA = Player(playerOrigin, 'blue');
-//var playerA = new Player(playerOrigin, 'blue');
-var playerA = new Player('bill', playerOrigin, 'blue');
 
-// when playerA returns new Group and instantiate as = Player, set position works
-// when playerA doesn't return group and instantiate as = new Player, set position doesn't work??
+// when Player() returns new Group and instantiate as = Player, set position works
+// when player() doesn't return group and instantiate as = new Player, set position doesn't work??
 // for group or other 'item'?
 //playerA.position = [300, 340];
 
 // when playerA returns new Group and instantiate as = Player, set color doesn't work
 // when playerA doesn't return new Group and instantiate as = new Player, set color works
-playerA.text.fillColor = 'red';
+//playerA.text.fillColor = 'red';
 
 // return color that varies with index and alternates semi-complementary
 function oddEvenColor(index)
@@ -76,13 +74,14 @@ function oddEvenColor(index)
 }
 
 // Loop through array of players and draw them all.
-var playerNames = ['Bill', 'Joe', 'Fred', 'John'];
-var offset = 60;
+var playerNames = ['Bill', 'Joe', 'Sally', 'Fred', 'John', 'Zoe', 'Cathy', 'Luis', 'Hector', 'Om',
+'Pinto', 'Ray', 'Hiro', 'Yi', 'Boo', 'Arfu'];
+var offset = 40;
 for(var i = 0; i < playerNames.length; i++) {
     var player = new Player(playerNames[i],
                             playerOrigin,
                             oddEvenColor(i),
-                            'blue');
+                            'black');
     // TODO: translate as a Group or using a function
     player.roundRect.translate(0, offset * i);
     player.text.translate(0, offset * i);
