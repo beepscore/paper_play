@@ -35,7 +35,7 @@ function Player(name, origin, rectColor, textColor)
     this.roundRect = new Path.RoundRectangle(rect, cornerSize);
     this.roundRect.style = {
         fillColor: rectColor,
-        strokeColor: 'brown',
+        strokeColor: {hue: 0, saturation: 0.0, brightness: 0.6},
         strokeWidth: 4
     };
 
