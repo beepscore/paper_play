@@ -22,7 +22,7 @@ var pathCircle = new Path.Circle({
 
 
 // Create player object with a name, rounded rectangle and text showing name.
-function Player(name, origin, textColor)
+function Player(name, origin, rectColor, textColor)
 {
     this.name = name;
 
@@ -33,7 +33,7 @@ function Player(name, origin, textColor)
     var cornerSize = new Size(20, 20);
     this.roundRect = new Path.RoundRectangle(rect, cornerSize);
     this.roundRect.style = {
-        fillColor: 'orange',
+        fillColor: rectColor,
         strokeColor: 'brown',
         strokeWidth: 6
     };
@@ -64,12 +64,25 @@ var playerA = new Player('bill', playerOrigin, 'blue');
 // when playerA doesn't return new Group and instantiate as = new Player, set color works
 playerA.text.fillColor = 'red';
 
+// return color that varies with index and alternates semi-complementary
+function oddEvenColor(index)
+{
+    // http://stackoverflow.com/questions/4228356/integer-division-in-javascript
+    // complementary hue = +180 degrees?
+    var oddEvenColor = {hue: 40.*Math.floor(index/2) + ((index%2)*180.),
+        saturation: 0.4,
+        brightness: 0.8};
+    return oddEvenColor;
+}
 
 // Loop through array of players and draw them all.
 var playerNames = ['Bill', 'Joe', 'Fred', 'John'];
 var offset = 60;
 for(var i = 0; i < playerNames.length; i++) {
-    var player = new Player(playerNames[i], playerOrigin, 'blue');
+    var player = new Player(playerNames[i],
+                            playerOrigin,
+                            oddEvenColor(i),
+                            'blue');
     // TODO: translate as a Group or using a function
     player.roundRect.translate(0, offset * i);
     player.text.translate(0, offset * i);
