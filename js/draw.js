@@ -67,9 +67,9 @@ function oddEvenColor(index)
 {
     // http://stackoverflow.com/questions/4228356/integer-division-in-javascript
     // complementary hue = +180 degrees?
-    var oddEvenColor = {hue: 40.*Math.floor(index/2) + ((index%2)*180.),
-        saturation: 0.4,
-        brightness: 0.8};
+    var oddEvenColor = {hue: 60.*Math.floor(index/2) + ((index%2)*180.),
+        saturation: 0.3,
+        brightness: 0.7};
     return oddEvenColor;
 }
 
