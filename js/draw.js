@@ -76,16 +76,20 @@ function oddEvenColor(index)
     return oddEvenColor;
 }
 
+var players = [];
 // Loop through array of players and draw them all.
 var playerNames = ['Bill', 'Joe', 'Sally', 'Fred', 'John', 'Zoe', 'Cathy', 'Luis', 'Hector', 'Om',
 'Pinto', 'Ray', 'Hiro', 'Yi', 'Boo', 'Arfu'];
 var offset = 40;
 for(var i = 0; i < playerNames.length; i++) {
-    var player = new Player(playerNames[i],
+    players[i] = new Player(playerNames[i],
                             playerOrigin,
                             oddEvenColor(i),
                             {hue: 0, saturation: 0.0, brightness: 0.8});
     // TODO: translate as a Group or using a function
-    player.roundRect.translate(0, offset * i);
-    player.text.translate(0, offset * i);
+    players[i].roundRect.translate(0, offset * i);
+    players[i].text.translate(0, offset * i);
 };
+
+players[2].roundRect.fillColor = sickColor;
+players[3].roundRect.fillColor = deadColor;
