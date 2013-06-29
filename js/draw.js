@@ -81,7 +81,7 @@ for(var i = 0; i < playerNames.length; i++) {
     var player = new Player(playerNames[i],
                             playerOrigin,
                             oddEvenColor(i),
-                            'black');
+                            {hue: 0, saturation: 0.0, brightness: 0.8});
     // TODO: translate as a Group or using a function
     player.roundRect.translate(0, offset * i);
     player.text.translate(0, offset * i);
