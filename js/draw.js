@@ -21,6 +21,9 @@ var pathCircle = new Path.Circle({
 });
 
 
+var sickColor = {hue: 330, saturation: 0.8, brightness: 0.4};
+var deadColor = {hue: 0, saturation: 0.0, brightness: 0.2};
+
 // Create player object with a name, rounded rectangle and text showing name.
 function Player(name, origin, rectColor, textColor)
 {
